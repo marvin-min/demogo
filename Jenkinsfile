@@ -4,11 +4,21 @@ pipeline {
   //定义一些环境信息
   //定义流水线的加工流程
   stages {
+    stage('环境检查') {
+      steps {
+        sh 'printenv'
+        sh 'pwd & ls -l'
+      }
+    }
     // 1. 拉取代码
     // 3. 编译
     stage('Build') {
+      agent {
+        docker {image 'golang:1.23.1-alpine3.17'}
+      }
       steps {
         echo 'Building..'
+        sh 'go version'
         sh 'pwd & ls -l'
       }
     }
