@@ -13,8 +13,11 @@ pipeline {
     // 1. 拉取代码
     // 3. 编译
     stage('Build') {
-      agent {
-        docker {image 'golang:1.23.7-alpine3.21'}
+    agent {
+        docker {
+          image 'maven:3.8.6-openjdk-11'  // Example image without Docker
+          // If Docker is needed inside, use 'docker:dind' and adjust args
+        }
       }
       steps {
         echo 'Building..'
