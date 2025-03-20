@@ -9,6 +9,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building..'
+        sh 'pwd & ls -l'
       }
     }
     // 2. 单元测试
