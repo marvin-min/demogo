@@ -14,7 +14,7 @@ pipeline {
     // 3. 编译
     stage('Build') {
       agent {
-        docker {image 'golang:1.23.1-alpine3.17'}
+        docker {image 'golang:1.23.7-alpine3.21'}
       }
       steps {
         echo 'Building..'
