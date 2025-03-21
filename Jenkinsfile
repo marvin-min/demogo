@@ -7,8 +7,8 @@ pipeline {
     stage('环境检查') {
       steps {
         sh 'printenv'
-        sh 'pwd & ls -l'
-      }
+        sh  'hostname'
+        }
     }
     // 1. 拉取代码
     // 3. 编译
@@ -18,9 +18,8 @@ pipeline {
       }
       steps {
         echo 'Building..'
-                sh 'pwd & ls -l'
+        sh 'pwd & ls -l'
         sh 'go version'
-
       }
     }
     // 2. 单元测试
@@ -33,7 +32,6 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'Deploying....'
-        sh 'go version'
       }
     }
   }
