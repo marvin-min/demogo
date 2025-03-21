@@ -13,7 +13,7 @@ pipeline {
     // 1. 拉取代码
     // 3. 编译
     stage('Build') {
-    agent {
+      agent {
           docker {image 'golang:1.23.7-alpine3.21'}
       }
       steps {
