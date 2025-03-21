@@ -18,8 +18,9 @@ pipeline {
       }
       steps {
         echo 'Building..'
+                sh 'pwd & ls -l'
         sh 'go version'
-        sh 'pwd & ls -l'
+
       }
     }
     // 2. 单元测试
