@@ -20,6 +20,9 @@ pipeline {
         echo 'Building..'
         sh 'pwd & ls -l'
         sh 'go version'
+        sh 'go env'
+        sh 'go build -o main main.go'
+        sh 'ls -l'
       }
     }
     // 2. 单元测试
