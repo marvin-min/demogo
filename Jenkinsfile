@@ -10,6 +10,12 @@ pipeline {
         sh  'hostname'
         }
     }
+       // 2. 单元测试
+    stage('Test') {
+      steps {
+        echo 'Testing..'
+      }
+    }
     // 1. 拉取代码
     // 3. 编译
     stage('Build') {
@@ -23,12 +29,7 @@ pipeline {
         sh 'go env'
         sh 'go build -o main main.go'
         sh 'ls -l'
-      }
-    }
-    // 2. 单元测试
-    stage('Test') {
-      steps {
-        echo 'Testing..'
+        sh 'docker version'
       }
     }
     // 4. 部署
