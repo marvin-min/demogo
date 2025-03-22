@@ -37,7 +37,7 @@ pipeline {
         sh 'docker version'
         echo 'Deploying....'
         sh 'pwd & ls -l'
-        sh 'docker build -t hello .'
+        sh 'pwd & docker build -t hello .'
         sh 'docker run -d -p 8080:8080   --restart=always --name demogo demogo'
       }
     }
