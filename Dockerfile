@@ -1,5 +1,6 @@
 FROM alpine:latest
 WORKDIR /app
-COPY main main
-ENTRYPOINT ["./main"]
+COPY hello hello
 EXPOSE 8080
+
+ENTRYPOINT ["./hello"]

@@ -27,7 +27,7 @@ pipeline {
         sh 'go env'
         echo 'Building..'
         sh 'pwd & ls -l'
-        sh 'go build -o main main.go'
+        sh 'GOOS=linux GOARCH=amd64 go build -o hello .'
         sh 'ls -l'
       }
     }
@@ -37,7 +37,7 @@ pipeline {
         sh 'docker version'
         echo 'Deploying....'
         sh 'pwd & ls -l'
-        sh 'docker build -t demogo .'
+        sh 'docker build -t hello .'
         sh 'docker run -d -p 8080:8080   --restart=always --name demogo demogo'
       }
     }
