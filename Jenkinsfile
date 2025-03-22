@@ -28,7 +28,7 @@ pipeline {
         echo 'Building..'
         sh 'pwd & ls -l'
         sh 'GOOS=linux GOARCH=amd64 go build -o hello .'
-        sh 'ls -l'
+        sh 'pwd & ls -l'
       }
     }
     // 4. 部署
