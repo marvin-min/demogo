@@ -34,8 +34,10 @@ pipeline {
     // 4. 部署
     stage('Deploy') {
       steps {
-         sh 'docker version'
+        sh 'docker version'
         echo 'Deploying....'
+        sh 'docker build -t demogo .'
+        sh 'docker run -d -p 8080:8080   --restart=always --name demogo demogo'
       }
     }
   }
