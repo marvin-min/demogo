@@ -27,7 +27,7 @@ pipeline {
         sh 'pwd & ls -l'
         sh 'go version'
         sh 'go env'
-        sh 'go build -o main main.go'
+        sh 'cd ${WORKSPACE} && go build -o main main.go'
         sh 'ls -l'
       }
     }
