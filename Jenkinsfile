@@ -29,12 +29,12 @@ pipeline {
         sh 'go env'
         sh 'go build -o main main.go'
         sh 'ls -l'
-        sh 'docker version'
       }
     }
     // 4. 部署
     stage('Deploy') {
       steps {
+         sh 'docker version'
         echo 'Deploying....'
       }
     }
