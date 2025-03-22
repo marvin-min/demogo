@@ -24,7 +24,13 @@ pipeline {
         sh 'go env'
         echo 'Building..'
         sh 'pwd && ls -l'  // 查看当前目录
-        sh 'cd ${WORKSPACE} && go clean && GOOS=linux GOARCH=amd64 go build -o ${WORKSPACE}/hello .'  // 显式指定输出路径
+          sh '''
+          cd ${WORKSPACE}
+          pwd
+          go clean
+          GOOS=linux GOARCH=amd64 go build -o hello .
+          ls -l ${WORKSPACE}  // 检查 hello 文件是否生成
+        '''
         sh 'pwd && ls -l ${WORKSPACE}'  // 检查 hello 文件是否生成
       }
     }
