@@ -27,7 +27,7 @@ pipeline {
         sh 'go env'
         echo 'Building..'
         sh 'pwd & ls -l'
-        sh 'GOOS=linux GOARCH=amd64 go build -o hello .'
+        sh 'cd ${WORKSPACE} & go clean & GOOS=linux GOARCH=amd64 go build -o hello .'
         sh 'pwd & ls -l'
       }
     }
